@@ -9,11 +9,14 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
+from __future__ import absolute_import, unicode_literals
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import environ
 
-BASE_DIR = os.path.join('..', os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+APPS_DIR = ROOT_DIR.path('cv')
+
+env = environ.Env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -79,7 +82,7 @@ WSGI_APPLICATION = 'caas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': ROOT_DIR('db.sqlite3'),
     }
 }
 
@@ -98,11 +101,24 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# STATIC FILE CONFIGURATION
+# ------------------------------------------------------------------------------
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-root
+STATIC_ROOT = str(ROOT_DIR('static'))
 
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
+STATICFILES_DIRS = (
+    str(APPS_DIR.path('static')),
+)
+
+# See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 GRAPHIQL_DEFAULT_QUERY = '''# Welcome to GraphiQL
 #
@@ -137,11 +153,11 @@ GRAPHIQL_DEFAULT_QUERY = '''# Welcome to GraphiQL
 # Change the database setup if we have DB environment
 # vars. Useful for Heroku/Dokku databases
 
-DB_NAME = os.environ.get('DB_NAME')
-DB_HOST = os.environ.get('DB_HOST')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASS')
-DB_PORT = os.environ.get('DB_PORT')
+DB_NAME = env('DB_NAME', default=None)
+DB_HOST = env('DB_HOST', default=None)
+DB_USER = env('DB_USER', default=None)
+DB_PASSWORD = env('DB_PASS', default=None)
+DB_PORT = env('DB_PORT', default=None)
 
 if DB_NAME and DB_HOST and DB_USER:
     DATABASES = {

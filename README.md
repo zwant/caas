@@ -22,8 +22,6 @@ source env/bin/activate
 # Install the requirements
 pip install -r requirements_base.txt
 
-# Collect static data
-python manage.py collectstatic
 
 # Setup the db and load the fixtures
 python manage.py migrate
