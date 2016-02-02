@@ -36,7 +36,8 @@ PREREQ_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_graphiql'
+    'django_graphiql',
+    'webpack_loader'
 ]
 
 PROJECT_APPS = [
@@ -119,6 +120,15 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/', # must end with slash
+        'STATS_FILE': './cv/static/webpack-stats.json',
+        'POLL_INTERVAL': 0.1,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
+}
 
 GRAPHIQL_DEFAULT_QUERY = '''# Welcome to GraphiQL
 #
