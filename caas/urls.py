@@ -22,7 +22,7 @@ from django.contrib import admin
 from django.views.decorators.csrf import csrf_exempt
 
 from graphene.contrib.django.views import GraphQLView
-from starwars.schema import schema
+from cv.schema import schema
 
 # Hack for allow static files in prod (Heroku/Dokku)
 def static(prefix, view=serve, **kwargs):
@@ -33,7 +33,7 @@ def static(prefix, view=serve, **kwargs):
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url('', include('starwars.urls')),
+    url('', include('cv.urls')),
     url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
     url(r'^graphiql', include('django_graphiql.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

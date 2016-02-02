@@ -4,16 +4,10 @@ from django.contrib import admin, messages
 from django.core.exceptions import ValidationError
 
 from .models import (
-    People,
-    Planet,
-    Film,
-    Starship,
-    Vehicle,
-    Species
-
+    CV
 )
 
-classes = [People, Planet, Film, Starship, Vehicle, Species]
+classes = [CV]
 
 
 class ModelAdmin(admin.ModelAdmin):

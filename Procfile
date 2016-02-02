@@ -1,1 +1,1 @@
-web: gunicorn swapi_graphene.wsgi --log-file -
+web: gunicorn caas.wsgi --log-file -
