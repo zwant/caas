@@ -61,4 +61,5 @@ docs/_build/
 # PyBuilder
 target/
 
-static/node_modules/
+cv/static/node_modules/
+/static/
