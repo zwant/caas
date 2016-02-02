@@ -19,15 +19,21 @@ class Connection(DjangoConnection):
         return len(self.get_connection_data())
 
 class CV(DjangoNode):
+
     '''A single CV.'''
     class Meta:
         model = models.CV
         exclude_fields = ('created', 'edited')
 
+class WorkExperience(DjangoNode):
+    class Meta:
+        model = models.WorkExperience
+        exclude_fields = ('created', 'edited')
 
 class Query(graphene.ObjectType):
     all_cvs = relay.ConnectionField(CV)
     cv = relay.NodeField(CV)
+    work_experience = relay.NodeField(WorkExperience)
     viewer = graphene.Field('self')
 
     @resolve_only_args

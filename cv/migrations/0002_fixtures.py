@@ -3,7 +3,7 @@ from django.core.management import call_command
 
 
 def loadfixture(apps, schema_editor):
-    fixtures = 'cvs'.split(' ')
+    fixtures = 'cvs work_experience'.split(' ')
     call_command('loaddata', *fixtures)
 
 

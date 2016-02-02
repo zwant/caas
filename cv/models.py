@@ -15,8 +15,20 @@ class DateTimeModel(models.Model):
 class CV(DateTimeModel):
     """ A CV """
 
-    title = models.CharField(max_length=100)
-    producer = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    introduction = models.CharField(max_length=100)
+    # From Workexperience model: work_experience
 
     def __unicode__(self):
         return self.title
+
+class WorkExperience(DateTimeModel):
+    cvs = models.ForeignKey(CV, related_name='work_experience')
+
+    from_date = models.DateField()
+    to_date = models.DateField()
+    role = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    highlights = models.CharField(max_length=100)

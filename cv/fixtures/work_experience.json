@@ -1,0 +1,16 @@
+[{
+    "fields": {
+        "from_date": "2014-12-20",
+        "to_date": "2014-12-20",
+        "role": "I am mrBean",
+        "company": "MrBean",
+        "created": "2014-12-10T14:22:31.880Z",
+        "edited": "2014-12-10T14:23:31.880Z",
+        "location": "Stockholm",
+        "description": "Do the doing",
+        "highlights": "Developing",
+        "cvs": 1
+    },
+    "model": "cv.WorkExperience",
+    "pk": 1
+}]
