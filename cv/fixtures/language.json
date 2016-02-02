@@ -1,0 +1,23 @@
+[
+  {
+      "fields": {
+          "created": "2014-12-10T14:22:31.880Z",
+          "edited": "2014-12-10T14:23:31.880Z",
+          "language": "Swedish",
+          "level": "Very good",
+          "cvs": 1
+      },
+      "model": "cv.Language",
+      "pk": 1
+  },
+  {
+    "fields": {
+      "created": "2014-12-10T14:22:31.880Z",
+      "edited": "2014-12-10T14:23:31.880Z",
+      "language": "Spanish",
+      "level": "Basic",
+      "cvs": 1
+    },
+    "model": "cv.Language",
+    "pk": 2
+}]

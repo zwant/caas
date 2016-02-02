@@ -1,0 +1,21 @@
+[
+  {
+      "fields": {
+          "created": "2014-12-10T14:22:31.880Z",
+          "edited": "2014-12-10T14:23:31.880Z",
+          "description": "Python for beginers",
+          "cvs": 1
+      },
+      "model": "cv.Course",
+      "pk": 1
+  },
+  {
+    "fields": {
+      "created": "2014-12-10T14:22:31.880Z",
+      "edited": "2014-12-10T14:23:31.880Z",
+      "description": "Golang in a nutshell",
+      "cvs": 1
+    },
+    "model": "cv.Course",
+    "pk": 2
+}]

@@ -1,0 +1,14 @@
+[{
+    "fields": {
+        "created": "2014-12-10T14:22:31.880Z",
+        "edited": "2014-12-10T14:23:31.880Z",
+        "from_date": "2014-12-20",
+        "to_date": "2015-12-20",
+        "role": "Money collector",
+        "organization": "Red cross",
+        "description": "Stayed at Stockholm central every weekend",
+        "cvs": 1
+    },
+    "model": "cv.VolunteerWork",
+    "pk": 1
+}]

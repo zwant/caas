@@ -30,10 +30,35 @@ class WorkExperience(DjangoNode):
         model = models.WorkExperience
         exclude_fields = ('created', 'edited')
 
+class Education(DjangoNode):
+    class Meta:
+        model = models.Education
+        exclude_fields = ('created', 'edited')
+
+class Language(DjangoNode):
+    class Meta:
+        model = models.Language
+        exclude_fields = ('created', 'edited')
+
+class Course(DjangoNode):
+    class Meta:
+        model = models.Course
+        exclude_fields = ('created', 'edited')
+
+class VolunteerWork(DjangoNode):
+    class Meta:
+        model = models.VolunteerWork
+        exclude_fields = ('created', 'edited')
+
 class Query(graphene.ObjectType):
     all_cvs = relay.ConnectionField(CV)
     cv = relay.NodeField(CV)
     work_experience = relay.NodeField(WorkExperience)
+    education = relay.NodeField(Education)
+    language = relay.NodeField(Language)
+    course = relay.NodeField(Course)
+    volunteer_work = relay.NodeField(VolunteerWork)
+
     viewer = graphene.Field('self')
 
     @resolve_only_args
