@@ -16,21 +16,20 @@ Just run the following commands and you'll be all set!
 git clone git@github.com:zwant/caas.git
 cd caas
 
-# Make a virtualenv
-virtualenv env
-source env/bin/activate
-# Install the requirements
-pip install -r requirements_base.txt
-
-
-# Setup the db and load the fixtures
-python manage.py migrate
+# running the serve which will make all deps
+make serve
 ```
 
-Once you have everything done, just run:
-
+Other make targets that you can run. First is the migration. This will simple
+running the migration the current database state
 ```bash
-python manage.py runserver
+make migrate
+```
+
+If you for some reason want to resetdb. This will remove your current database
+and create a new one
+```bash
+make resetdb
 ```
 
 Open your browser and visit [localhost:8080](http://localhost:8080/) et voilá!
