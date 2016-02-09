@@ -1,7 +1,7 @@
 
 env: env/bin/activate
 
-env/bin/activate:
+env/bin/activate: requirements_base.txt
 	  test -d env || virtualenv env
 	  env/bin/pip install -Ur requirements_base.txt
 	  touch env/bin/activate
