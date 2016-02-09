@@ -24,7 +24,7 @@ class CV(DateTimeModel):
     # From VolunteerWork: volunteer_works
 
     def __unicode__(self):
-        return self.title
+        return str(self.__dict__)
 
 class WorkExperience(DateTimeModel):
     cvs = models.ForeignKey(CV, related_name='work_experiences')
@@ -35,7 +35,7 @@ class WorkExperience(DateTimeModel):
     company = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    highlights = models.CharField(max_length=100)
+    highlights = models.CharField(max_length=100, null=True)
 
 class Education(DateTimeModel):
     cvs = models.ForeignKey(CV, related_name='educations')

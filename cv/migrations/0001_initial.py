@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('company', models.CharField(max_length=100)),
                 ('location', models.CharField(max_length=100)),
                 ('description', models.CharField(max_length=100)),
-                ('highlights', models.CharField(max_length=100)),
+                ('highlights', models.CharField(max_length=100, null=True)),
                 ('cvs', models.ForeignKey(related_name='work_experience', to='cv.CV')),
             ],
             options={

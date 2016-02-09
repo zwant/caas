@@ -32,6 +32,35 @@ and create a new one
 make resetdb
 ```
 
-Open your browser and visit [localhost:8080](http://localhost:8080/) et voilá!
+Open your browser and visit [localhost:8000](http://localhost:8000/) et voilá!
+
+To try submitting data, go to [localhost:8000/cv](http://localhost:8000/cv) .
+Here's some example JSON you can use:
+```
+{
+    "introduction": "hello",
+    "name": "kalle",
+    "work_experience": [
+        {"from_date": "2015-12-12",
+            "to_date": "2016-02-01",
+            "role": "developer",
+            "company": "Acme Inc",
+            "location": "Göteborg",
+            "description": "I did the doings"
+        },
+        {"from_date": "2015-12-12",
+            "to_date": "2016-02-01",
+            "role": "developer",
+            "company": "Acme Inc",
+            "location": "Göteborg",
+            "description": "I did the doings"
+        }
+    ],
+    "languages": [{
+        "language": "swedish",
+        "level": "basic"
+    }]
+}
+```
 
 **For querying the schema we recomend using [/graphiql](http://localhost:8080/graphiql)**

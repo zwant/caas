@@ -1,5 +1,6 @@
-Django==1.8.5
+Django==1.9.2
 graphene[django]==0.4.3
 django-graphiql==0.4.2
 django-environ==0.3.0
 django-webpack-loader
+jsonschema==2.5.1
