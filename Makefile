@@ -13,7 +13,7 @@ serve: env db.sqlite3
 	)
 
 resetdb: env
-	rm db.sqlite3
+	test ! -f db.sqlite3 || rm db.sqlite3
 	make db.sqlite3
 
 db.sqlite3:
