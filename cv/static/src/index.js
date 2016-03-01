@@ -2,26 +2,19 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
-import { Provider } from 'react-redux';
-
+import Relay from 'react-relay';
 import App from './containers/App';
 import Reducer from './reducers/reducer';
+import MainRoute from './routes/main';
+import Name from './components/name';
 
-const loggerMiddleware = createLogger();
-const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware, // lets us dispatch() functions
-  loggerMiddleware // neat middleware that logs actions
-)(createStore);
-
-const store = createStoreWithMiddleware(Reducer);
 let rootElement = document.getElementById('root');
-
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Relay.RootContainer
+    Component={Name}
+    route={new MainRoute()}
+  />,
   rootElement
-)
+);
+// render(<App />, rootElement)
+

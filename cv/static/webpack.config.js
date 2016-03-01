@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var BundleTracker  = require('webpack-bundle-tracker');
+var getBabelRelayPlugin = require('babel-relay-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -15,7 +16,8 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("app.css"),
-    new BundleTracker({filename: './webpack-stats.json'})
+    new BundleTracker({filename: './webpack-stats.json'}),
+    getBabelRelayPlugin()
   ],
   module: {
     loaders: [{
